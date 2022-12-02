@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DataVisualization of Plane Crashes</title>
+        <met  a name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="css/main.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="onglet">   
+            <h1 id="titre" onclick="location.reload()"> Stories about Airplane Crashes</h1>
+            <h2 id="indication">Cliquez sur un point pour obtenir plus d'informations. <a href="#about"> En savoir plus sur le projet</a></h2>  
+            <div id="infos">
+                <div id="texte">
+                    <p class="soustitre" id="lieu"></p>
+                    <p class="soustitre" id="année"></p>
+                    <p class="soustitre" id="heure"></p>
+                    <p class="soustitre" id="compagnie"></p>
+                    <p class="soustitre" id="victimes"></p>
+                    <p class="soustitre" id="histoire"></p>
+                </div>
+            </div>
+        </div>  
+
+        <div id="projection">
+            <h2 class="choose">Choose projection : </h2>
+            <div class="cadres">
+                <p class="bouton" onclick="changeG()"> Globe</p>
+                <p class="bouton" onclick="changeM()">Mercator</p>
+            </div>
+        </div>
+
+        <div id="map"></div>
+
+        <section id="about">
+            <h1> About the project</h1>
+            <h2> 
+                Je m'appelle Lucas THOMAS. Ce site est un projet mené en cours d'introduction aux outils numériques au sein du master création et édition numériques de Paris 8.
+                Il a pour but de présenter un jeu de données de manière interactive.
+                Le sujet evoqué sur ce projet est l'histoire des crashs d'avions depuis 1928. On dit souvent que l'avion est le moyen de transport le plus sûr du monde et pour cause : en 2019, on dénombrait un accident mortel tous les 5 millions de vol. Mais cela n'a pas toujours été le cas et je vous propose de découvrir les histoires des nombreux crashs d'avions depuis 1928
+            </h2>
+            <h1> Technical explanations</h1>
+            <h2>
+                Les données utilisées proviennent du site <a href="https://www.kaggle.com/datasets/saurograndi/airplane-crashes-since-1908">Kaggle</a> et étaient initiallement répertoriées par l'entreprise Socrata - Open Data. 
+                J'ai dû retravailler ce jeu de données sur Excel en gardant uniquement les lignes où toutes les informations étaient présentes. De plus, les coordonnées exactes des lieux n'étant pas inclues initiallement dans la base, j'ai dû convertir les noms de ville en coordonnées grâce à Excel. Au final, je travaille avec une base de 1152 enregistrements répertoriant des accidents aériens de 1928 à 2009.
+                Afin de travailler en Javascript, j'ai converti mes données CSV en fichier GeoJSON afin de les exploiter sur une carte. En collaboration avec l'outil MapBox, j'ai pu créer des scripts affichant un point sur la carte pour chaque enregistrement et récupérer les autres informations.
+                Ainsi lorsque l'on clique sur un point, on obtient toutes les informations sur l'accident en question dans l'onglet de gauche et pour la plupart des accidents, le trajet de l'avion s'affiche sous forme de ligne sur la carte. Enfin, l'onglet "Projection" permet d'alterner entre un vue planisphère ou globe.
+            </h2>
+            <h1> Download my Dataset (CSV) : <a href="data/airplane_crashes dataset.csv" target="_blank"> Airplanes Accident Dataset</a></h1>
+            
+        </section>
+ 
+        <script src="js/script.js"></script>
+ 
+    </body>
+</html>
