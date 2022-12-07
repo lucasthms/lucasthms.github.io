@@ -22,7 +22,7 @@ const aircrashes = 'https://raw.githubusercontent.com/lucasthms/aircrashes-datas
             'paint': {
                 'circle-radius': 4,
                 'circle-stroke-width': 1,
-                'circle-color': 'darkseagreen',
+                'circle-color': '#C29432',
                 'circle-stroke-color': 'white'
             }
         });
@@ -34,7 +34,7 @@ const aircrashes = 'https://raw.githubusercontent.com/lucasthms/aircrashes-datas
             'paint': {
                 'circle-radius': 4,
                 'circle-stroke-width': 1,
-                'circle-color': 'gold',
+                'circle-color': '#C25746',
                 'circle-stroke-color': 'white'
             },
             "filter": ["==", "id", ""]
