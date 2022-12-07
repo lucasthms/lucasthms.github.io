@@ -52,6 +52,7 @@ html{
     font-weight: 400;
     border: solid 2px lightsteelblue;
     border-radius: 10px;
+    padding-bottom:3px
 }
 
 #infos {
