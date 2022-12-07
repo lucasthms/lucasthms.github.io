@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DataVisualization of Plane Crashes</title>
+        <met  a name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+    </head>
+
+    <body>
+        
+        <div id="onglet">   
+            <h1 id="titre" onclick="location.reload()"> Stories about Airplane Crashes</h1>
+            <h2 id="indication">Cliquez sur un point pour obtenir plus d'informations. <a href="#about"> En savoir plus sur le projet</a></h2>  
+            <div id="infos">
+                <div id="texte">
+                    <p class="soustitre" id="lieu"></p>
+                    <p class="soustitre" id="année"></p>
+                    <p class="soustitre" id="heure"></p>
+                    <p class="soustitre" id="compagnie"></p>
+                    <p class="soustitre" id="victimes"></p>
+                    <p class="soustitre" id="histoire"></p>
+                </div>
+            </div>
+        </div>  
+
+        <div id="projection">
+            <h2 class="choose">Choose projection : </h2>
+            <div class="cadres">
+                <p class="bouton" onclick="changeG()"> Globe</p>
+                <p class="bouton" onclick="changeM()">Planisphere</p>
+            </div>
+        </div>
+
+        <div id="map"></div>
+
+        <section id="basdepage">
+            <section id="about">
+                <h1> About the project</h1>
+                <h2> 
+                    Je m'appelle Lucas THOMAS. Ce site est un projet mené en cours d'introduction aux outils numériques au sein du master création et édition numériques de Paris 8.
+                    Il a pour but de présenter un jeu de données de manière interactive.
+                    Le sujet evoqué sur mon projet est l'histoire des crashs d'avions depuis 1928. On dit souvent que l'avion est le moyen de transport le plus sûr du monde et pour cause : en 2019, on dénombrait un accident mortel tous les 5 millions de vol. Mais cela n'a pas toujours été le cas et je vous propose de découvrir les histoires des nombreux crashs d'avions depuis 1928
+                </h2>
+                <h1> Technical explanations</h1>
+                <h2>
+                    Les données utilisées proviennent du site <a href="https://www.kaggle.com/datasets/saurograndi/airplane-crashes-since-1908">Kaggle</a> et étaient initiallement répertoriées par l'entreprise Socrata - Open Data. 
+                    J'ai dû retravailler ce jeu de données sur Excel en gardant uniquement les lignes où toutes les informations étaient présentes. De plus, les coordonnées exactes des lieux n'étant pas inclues initiallement dans la base, j'ai dû convertir les noms de ville en coordonnées grâce à Excel. Au final, je travaille avec une base de 1152 enregistrements répertoriant des accidents aériens de 1928 à 2009.
+                    Afin de travailler en Javascript, j'ai converti mes données CSV en fichier GeoJSON afin de les exploiter sur une carte. Avec l'outil MapBox, j'ai pu écrire des scripts liés à la carte, affichant un point sur celle-ci pour chaque enregistrement et récupérer les autres informations.
+                    Ainsi lorsque l'on clique sur un point, on obtient toutes les informations sur l'accident en question dans l'onglet de gauche et pour la plupart des accidents, le trajet de l'avion s'affiche sous forme de ligne sur la carte. Enfin, l'onglet "Projection" permet d'alterner entre un vue planisphère ou globe.
+                </h2>
+                <h1> Download my Dataset (CSV) : <a href="data/airplane_crashes dataset.csv" target="_blank"> Airplanes Accident Dataset</a></h1>
+
+                
+            </section>
+            <a class="fleche" href ="#" >
+                <svg id="fleche"viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title/><g data-name="Layer 2" id="Layer_2"><path d="M1,16A15,15,0,1,1,16,31,15,15,0,0,1,1,16Zm28,0A13,13,0,1,0,16,29,13,13,0,0,0,29,16Z"/><path d="M12.13,21.59,17.71,16l-5.58-5.59a1,1,0,0,1,0-1.41h0a1,1,0,0,1,1.41,0l6.36,6.36a.91.91,0,0,1,0,1.28L13.54,23a1,1,0,0,1-1.41,0h0A1,1,0,0,1,12.13,21.59Z"/></g></svg>
+            </a>
+        </section>  
+ 
+        <script src="js/script.js"></script>
+ 
+    </body>
+</html>
